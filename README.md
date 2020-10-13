@@ -1,19 +1,29 @@
 # Instructions
 
-- Build this docker image
-- Run `bash` as the command with an iteractive tty to get into the image:
+- Build this docker image, use it as your base (read more [here](https://github.com/puckel/docker-airflow))
+- You can run `bash` as the command with an interactive tty to get into the image:
 
 ```
 docker run --rm -it ${whatever-you-named-the-image} /bin/bash
 ```
 
-- The data is in the directory `/root/data` on said image
-- Create a Pull Request with your code for review
+- Setup a local database within the docker image. The only restriction here is that you cannot use Airflow's database
 
-> **You're free to use whatever language you want just as long as you include the instructions on how to run your code. (Bonus points if you modify the `Dockerfile` instead)**
->
-> Note that you **do not** have to use a _Big Data_ stack like Hadoop or Spark. If you do use those, provide either a [docker-swarm](https://docs.docker.com/compose/) or [kubernetes](https://kubernetes.io/) configuration file(s) in your Pull Request that will setup the cluster or else we won't be able to run the code
+- Write an Airflow DAG that will:
 
+  1. Download the first 100 datasets from https://github.com/datasets
+  2. Load the data into the database that you setup.
+  3. Answer the questions [below](README.md#Questions) and output it to a table in your database in this format:
+
+  ```
+  |Question|Answer|
+  |--------|------|
+  | 1      | 1000 |
+  ```
+
+  4. Ensure that we can `docker run` and then use `localhost:$PORT` to see the solution running.
+
+- Lastly, create a Pull Request with your code for review
 
 # Questions
 
