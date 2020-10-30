@@ -1,26 +1,20 @@
 # Instructions
 
-- Build this docker image, use it as your base (read more [here](https://github.com/puckel/docker-airflow))
+- Build this docker image
 - You can run `bash` as the command with an interactive tty to get into the image:
 
 ```
 docker run --rm -it ${whatever-you-named-the-image} /bin/bash
 ```
 
-- Setup a local database within the docker image. The only restriction here is that you cannot use Airflow's database
-
-- Write an Airflow DAG that will:
-
-  1. Download the first 100 datasets from https://github.com/datasets
-  2. Load the data into the database that you setup.
-  3. Answer the questions [below](README.md#Questions) and output it to an answer(s) table.
-  4. Ensure that we can `docker run` and then use `localhost:$PORT` to see the solution running.
-
+- Setup a local database within the docker image.
+- Load the csv files from the `data` directory into the database you created.
+- Answer the questions [below](README.md#Questions) and output the answers into an answer table(s).
 - Lastly, create a Pull Request with your code for review
 
 # Questions
 
-## What's the average number of fields across all tables
+## What's the average number of fields across all the tables you loaded?
 
 Output should be a simple number
 
