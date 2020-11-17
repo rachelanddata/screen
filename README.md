@@ -1,3 +1,20 @@
+# TODO
+- Dockerize MySQL & Debian images w/ Docker Compose
+- Source data requires more profiling (code as is will not process all files)
+
+# STEPS
+- Build the docker image
+- Run: 
+```
+docker run --rm -it ${whatever-you-named-the-image} /bin/bash
+apt install mysql-server
+/etc/init.d/mysql start
+
+mysql -p 
+CREATE DATABASE INTERVIEW;
+python2.7 main.py
+```
+- 
 # Instructions
 
 - Build this docker image
